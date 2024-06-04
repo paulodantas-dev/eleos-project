@@ -11,10 +11,10 @@
 
   html,
   body {
-    @apply antialiased;
+    @apply antialiased min-h-screen;
   }
 
   body {
-    @apply relative min-h-screen font-archivo bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100;
+    @apply relative font-archivo;
   }
 }
