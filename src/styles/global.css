@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html,
+  body {
+    @apply antialiased;
+  }
+
+  body {
+    @apply relative min-h-screen font-archivo bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100;
+  }
+}
