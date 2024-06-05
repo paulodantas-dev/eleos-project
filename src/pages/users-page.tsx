@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchUsers, selectUsers } from "@/store/slices/usersSlice";
 import { useEffect } from "react";
-import Logo from "../assets/logo.png";
+import Logo from "@/assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { Button, Pagination } from "@mui/material";
 import { UsersCard } from "@/components";

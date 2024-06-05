@@ -3,7 +3,7 @@ import { fetchUserById, selectUsers } from "@/store/slices/usersSlice";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Logo from "../assets/logo.png";
+import Logo from "@/assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { Button, IconButton } from "@mui/material";
 
