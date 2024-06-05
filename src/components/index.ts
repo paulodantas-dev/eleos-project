@@ -5,6 +5,7 @@ import { NavBar } from "./nav-bar";
 import { TaskItem } from "./task-item";
 import { DeleteTaskDialog } from "./delete-task-dialog";
 import { UsersCard } from "./users-card";
+import { UserDetails } from "./user-details";
 
 export {
   TaskForm,
@@ -14,4 +15,5 @@ export {
   TaskItem,
   DeleteTaskDialog,
   UsersCard,
+  UserDetails,
 };
