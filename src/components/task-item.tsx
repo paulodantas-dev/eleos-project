@@ -70,7 +70,7 @@ export function TaskItem({
           <div className="flex flex-col gap-2 md:flex-row md:items-center">
             <p
               className={cn(
-                "max-w-52 truncate text-xs text-slate-400 md:max-w-md lg:max-w-52 xl:max-w-80 2xl:max-w-lg",
+                "max-w-40 truncate text-xs text-slate-400 md:max-w-md lg:max-w-52 xl:max-w-80 2xl:max-w-lg",
                 seeMore ? "whitespace-normal" : "whitespace-nowrap"
               )}
             >

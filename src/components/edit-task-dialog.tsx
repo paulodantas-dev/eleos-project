@@ -52,7 +52,7 @@ export function EditTaskDialog({
       <DialogContent>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex w-96 flex-col items-center gap-6 rounded p-4"
+          className="flex w-64 flex-col items-center gap-6 rounded p-4 lg:w-96"
         >
           <div className="flex w-full flex-col gap-2">
             <TextField

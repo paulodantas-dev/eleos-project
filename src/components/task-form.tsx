@@ -35,7 +35,7 @@ export function TaskForm() {
           className="flex w-96 flex-col items-center gap-6 rounded bg-slate-100 p-4"
         >
           <h1 className="text-2xl font-bold text-purple-500">
-            Eleos - Task Form
+            Eleos - Add task
           </h1>
           <div className="flex w-full flex-col gap-2">
             <TextField
