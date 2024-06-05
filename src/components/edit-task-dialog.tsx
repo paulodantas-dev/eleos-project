@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import toast from "react-hot-toast";
 
 interface EditTaskDialogProps {
   open: boolean;
@@ -43,6 +44,7 @@ export function EditTaskDialog({
 
   const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (data) => {
     onConfirm(id, data.name, data.description || "");
+    toast.success("Task updated successfully");
     onClose();
   };
 

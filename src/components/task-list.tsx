@@ -10,6 +10,7 @@ import { TaskItem } from "./task-item";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { DeleteTaskDialog } from "./delete-task-dialog";
+import toast from "react-hot-toast";
 
 export function TaskList() {
   const [isDeleteSingleTask, setIsDeleteSingleTask] = useState(false);
@@ -21,6 +22,7 @@ export function TaskList() {
 
   const handleDeleteTask = (id: string) => {
     dispatch(deleteTask(id));
+    toast.success("Task deleted successfully");
   };
 
   const handleActivateTask = (id: string) => {
@@ -33,6 +35,7 @@ export function TaskList() {
 
   const handleClearTasks = () => {
     dispatch(resetTasks());
+    toast.success("All tasks deleted successfully");
     setIsDeleteAllTasksDialog(false);
   };
 
