@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, Middleware } from "@reduxjs/toolkit";
 import type { RootState } from "@/store/store";
 import { v4 as uuidv4 } from "uuid";
 
-interface ITasksState {
+export interface ITasksState {
   id?: string;
   name: string;
   description?: string;

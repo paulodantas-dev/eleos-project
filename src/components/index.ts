@@ -3,5 +3,6 @@ import { TaskList } from "./task-list";
 import { LayoutRoot } from "./layout-root";
 import { NavBar } from "./nav-bar";
 import { TaskItem } from "./task-item";
+import { DeleteTaskDialog } from "./delete-task-dialog";
 
-export { TaskForm, TaskList, LayoutRoot, NavBar, TaskItem };
+export { TaskForm, TaskList, LayoutRoot, NavBar, TaskItem, DeleteTaskDialog };
