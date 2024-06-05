@@ -62,6 +62,7 @@ export function TaskForm() {
               variant="outlined"
               color="primary"
               multiline
+              maxRows={10}
               error={!!errors.description}
               {...register("description")}
             />

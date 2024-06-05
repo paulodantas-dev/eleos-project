@@ -1,7 +1,8 @@
-import { Checkbox, IconButton, Paper } from "@mui/material";
+import { Button, Checkbox, IconButton, Paper } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material/";
 import { cn } from "@/utils";
 import { format } from "date-fns";
+import { useState } from "react";
 
 interface TaskItemProps {
   task: {
@@ -22,6 +23,10 @@ export function TaskItem({
   onEditTask,
   onActivateTask,
 }: TaskItemProps) {
+  const [seeMore, setSeeMore] = useState(false);
+
+  const toggleSeeMore = () => setSeeMore((prev) => !prev);
+
   return (
     <Paper
       elevation={4}
@@ -54,7 +59,31 @@ export function TaskItem({
             {format(task.updatedAt!, "MM/dd/yyyy")}
           </span>
         </div>
-        <p className="text-xs text-slate-400">{task.description}</p>
+        <div className="flex flex-col gap-2 md:flex-row md:items-center">
+          <p
+            className={cn(
+              "max-w-52 truncate text-xs text-slate-400 md:max-w-md lg:max-w-52 xl:max-w-80 2xl:max-w-lg",
+              seeMore ? "whitespace-normal" : "whitespace-nowrap"
+            )}
+          >
+            {task.description}
+          </p>
+          <Button
+            variant="text"
+            size="small"
+            sx={{
+              fontSize: "0.75rem",
+              textTransform: "capitalize",
+              display:
+                task.description && task.description.length > 100
+                  ? "block"
+                  : "none",
+            }}
+            onClick={toggleSeeMore}
+          >
+            {seeMore ? "See Less" : "See More"}
+          </Button>
+        </div>
       </div>
       <div className="flex items-center gap-2">
         <IconButton color="error" onClick={() => onDeleteTask(task.id!)}>
