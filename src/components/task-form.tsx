@@ -28,15 +28,15 @@ export function TaskForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-slate-100 py-12 lg:py-0">
+    <section className="flex flex-col items-center justify-center bg-slate-100 py-12 lg:py-0">
       <Paper elevation={24}>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex w-96 flex-col items-center gap-6 rounded bg-slate-100 p-4"
         >
-          <h1 className="text-2xl font-bold text-purple-500">
+          <h2 className="text-2xl font-bold text-purple-500">
             Eleos - Add task
-          </h1>
+          </h2>
           <div className="flex w-full flex-col gap-2">
             <TextField
               fullWidth
@@ -88,6 +88,6 @@ export function TaskForm() {
           </Button>
         </form>
       </Paper>
-    </div>
+    </section>
   );
 }

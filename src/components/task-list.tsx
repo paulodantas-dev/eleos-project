@@ -57,11 +57,11 @@ export function TaskList() {
 
   return (
     <>
-      <div className="flex max-h-[calc(100vh-4.5rem)] flex-col gap-8 overflow-y-auto px-4 py-8">
+      <section className="flex max-h-[calc(100vh-4.5rem)] flex-col gap-8 overflow-y-auto px-4 py-8">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-purple-500">
+          <h2 className="text-2xl font-bold text-purple-500">
             Eleos - Task List
-          </h1>
+          </h2>
 
           <Button
             variant="text"
@@ -89,7 +89,7 @@ export function TaskList() {
             />
           ))}
         </div>
-      </div>
+      </section>
       <DeleteTaskDialog
         open={isDeleteAllTasksDialog}
         onClose={() => setIsDeleteAllTasksDialog(false)}
