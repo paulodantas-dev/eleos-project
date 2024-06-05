@@ -4,5 +4,14 @@ import { LayoutRoot } from "./layout-root";
 import { NavBar } from "./nav-bar";
 import { TaskItem } from "./task-item";
 import { DeleteTaskDialog } from "./delete-task-dialog";
+import { UsersCard } from "./users-card";
 
-export { TaskForm, TaskList, LayoutRoot, NavBar, TaskItem, DeleteTaskDialog };
+export {
+  TaskForm,
+  TaskList,
+  LayoutRoot,
+  NavBar,
+  TaskItem,
+  DeleteTaskDialog,
+  UsersCard,
+};

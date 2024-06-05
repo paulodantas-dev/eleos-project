@@ -16,8 +16,6 @@ export function TaskForm() {
     formState: { errors, isSubmitting },
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onBlur",
-    reValidateMode: "onBlur",
   });
   const dispatch = useAppDispatch();
 
