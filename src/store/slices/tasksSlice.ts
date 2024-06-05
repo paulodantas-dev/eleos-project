@@ -35,6 +35,21 @@ export const tasksSlice = createSlice({
       });
     },
 
+    editTask: (
+      state,
+      action: PayloadAction<
+        Omit<ITasksState, "active" | "createdAt" | "updatedAt">
+      >
+    ) => {
+      state.forEach((task) => {
+        if (task.id === action.payload.id) {
+          task.name = action.payload.name;
+          task.description = action.payload.description;
+          task.updatedAt = new Date().toISOString();
+        }
+      });
+    },
+
     activeTask: (state, action: PayloadAction<string>) => {
       state.forEach((task) => {
         if (task.id === action.payload) {
@@ -54,7 +69,7 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, resetTasks, deleteTask, activeTask } =
+export const { addTask, resetTasks, deleteTask, activeTask, editTask } =
   tasksSlice.actions;
 
 export const selectTasks = (state: RootState) => state.tasks;
@@ -64,7 +79,12 @@ export const tasksMiddleware: Middleware =
   (next) =>
   (action) => {
     const result = next(action);
-    if (addTask.match(action) || resetTasks.match(action)) {
+    if (
+      addTask.match(action) ||
+      resetTasks.match(action) ||
+      activeTask.match(action) ||
+      editTask.match(action)
+    ) {
       localStorage.setItem("tasks", JSON.stringify(getState().tasks));
     }
 

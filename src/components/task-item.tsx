@@ -117,11 +117,9 @@ export function TaskItem({
       />
       <EditTaskDialog
         open={openEditDialog}
+        onConfirm={onEditTask}
         onClose={onCloseDialog}
-        onConfirm={() => {
-          onEditTask(task.id!, task.name, task.description!);
-          onCloseDialog();
-        }}
+        id={task.id!}
         name={task.name}
         description={task.description || ""}
       />

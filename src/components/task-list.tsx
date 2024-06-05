@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   activeTask,
   deleteTask,
+  editTask,
   resetTasks,
   selectTasks,
 } from "@/store/slices/tasksSlice";
@@ -11,9 +12,9 @@ import { useState } from "react";
 import { DeleteTaskDialog } from "./delete-task-dialog";
 
 export function TaskList() {
-  const [deleteSingleTask, setDeleteSingleTask] = useState(false);
-  const [deleteAllTasksDialog, setDeleteAllTasksDialog] = useState(false);
-  const [editTask, setEditTask] = useState(false);
+  const [isDeleteSingleTask, setIsDeleteSingleTask] = useState(false);
+  const [isDeleteAllTasksDialog, setIsDeleteAllTasksDialog] = useState(false);
+  const [isEditTask, setIsEditTask] = useState(false);
 
   const tasks = useAppSelector(selectTasks);
   const dispatch = useAppDispatch();
@@ -27,12 +28,12 @@ export function TaskList() {
   };
 
   const handleEditTask = (id: string, name: string, description: string) => {
-    console.log(id, name, description);
+    dispatch(editTask({ id, name, description }));
   };
 
   const handleClearTasks = () => {
     dispatch(resetTasks());
-    setDeleteAllTasksDialog(false);
+    setIsDeleteAllTasksDialog(false);
   };
 
   if (!tasks.length) {
@@ -59,7 +60,10 @@ export function TaskList() {
             Eleos - Task List
           </h1>
 
-          <Button variant="text" onClick={() => setDeleteAllTasksDialog(true)}>
+          <Button
+            variant="text"
+            onClick={() => setIsDeleteAllTasksDialog(true)}
+          >
             Clear all tasks
           </Button>
         </div>
@@ -68,13 +72,13 @@ export function TaskList() {
             <TaskItem
               key={task.id}
               task={task}
-              openDeleteDialog={deleteSingleTask}
-              openEditDialog={editTask}
-              onOpenEditDialog={() => setEditTask(true)}
-              onOpenDeleteDialog={() => setDeleteSingleTask(true)}
+              openDeleteDialog={isDeleteSingleTask}
+              openEditDialog={isEditTask}
+              onOpenEditDialog={() => setIsEditTask(true)}
+              onOpenDeleteDialog={() => setIsDeleteSingleTask(true)}
               onCloseDialog={() => {
-                setDeleteSingleTask(false);
-                setEditTask(false);
+                setIsDeleteSingleTask(false);
+                setIsEditTask(false);
               }}
               onDeleteTask={handleDeleteTask}
               onEditTask={handleEditTask}
@@ -84,8 +88,8 @@ export function TaskList() {
         </div>
       </div>
       <DeleteTaskDialog
-        open={deleteAllTasksDialog}
-        onClose={() => setDeleteAllTasksDialog(false)}
+        open={isDeleteAllTasksDialog}
+        onClose={() => setIsDeleteAllTasksDialog(false)}
         onConfirm={handleClearTasks}
         title="Delete all tasks"
         description="Are you sure you want to delete all tasks?"

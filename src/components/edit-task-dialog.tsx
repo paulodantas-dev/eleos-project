@@ -13,7 +13,8 @@ import { z } from "zod";
 interface EditTaskDialogProps {
   open: boolean;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: (id: string, name: string, description: string) => void;
+  id: string;
   name: string;
   description: string;
 }
@@ -21,6 +22,7 @@ interface EditTaskDialogProps {
 export function EditTaskDialog({
   onClose,
   onConfirm,
+  id,
   description,
   name,
   open,
@@ -40,8 +42,7 @@ export function EditTaskDialog({
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (data) => {
-    console.log(data, "entrou");
-    onConfirm();
+    onConfirm(id, data.name, data.description || "");
     onClose();
   };
 
