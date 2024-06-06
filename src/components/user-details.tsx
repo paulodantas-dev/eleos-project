@@ -100,7 +100,7 @@ export function UserDetails({ user }: UserDetailsProps) {
           </p>
         </div>
 
-        <div className="relative h-44 w-full max-w-sm rounded-lg bg-gradient-to-r from-slate-50 to-slate-200 p-4 transition-all hover:scale-105">
+        <div className="relative h-44 w-full max-w-sm rounded-lg bg-gradient-to-r from-slate-50 to-slate-200 p-4 shadow-lg transition-all hover:scale-105">
           <h2 className="text-lg font-semibold">Bank Information</h2>
           <p className="absolute bottom-10 text-purple-400">
             {user.selectedUser?.bank.cardNumber}
