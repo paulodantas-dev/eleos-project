@@ -71,33 +71,8 @@ export function UserDetails({ user }: UserDetailsProps) {
         </div>
       )}
 
-      <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
-        <div className="relative h-44 w-full max-w-sm rounded-lg bg-gradient-to-r from-slate-50 to-slate-200 p-4">
-          <h2 className="text-lg font-semibold">Bank Information</h2>
-          <p className="absolute bottom-10 text-purple-400">
-            {user.selectedUser?.bank.cardNumber}
-          </p>
-          <p className="absolute bottom-3 text-purple-400">
-            <span className="text-xs text-slate-400">exp</span>
-            {user.selectedUser?.bank.cardExpire}
-          </p>
-          <p className="absolute right-8 top-6 rounded border border-purple-500 p-2 text-xl text-slate-950">
-            {user.selectedUser?.bank.cardType}
-          </p>
-          <p className="text-slate-400">
-            Currency: {user.selectedUser?.bank.currency}
-          </p>
-
-          <div className="absolute bottom-2 right-2 flex flex-col items-end gap-2">
-            <p className="text-xs text-slate-400">
-              Crypto Coin: {user.selectedUser?.crypto.coin}
-            </p>
-            <p className="text-xs text-slate-400">
-              Crypto Network: {user.selectedUser?.crypto.network}
-            </p>
-          </div>
-        </div>
-        <div className="flex h-44 w-full max-w-sm flex-col justify-between rounded-lg p-4 transition-colors hover:bg-slate-100">
+      <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
+        <div className="flex h-44 w-full max-w-sm flex-col justify-between rounded-lg p-4 transition-all hover:scale-105 hover:bg-slate-100">
           <div className="flex items-center justify-between ">
             <h2 className="text-lg font-semibold">Address</h2>
             <Button
@@ -122,6 +97,48 @@ export function UserDetails({ user }: UserDetailsProps) {
           <p className="text-slate-400">
             <span className="text-slate-950">Postal Code: </span>
             {user.selectedUser?.address.postalCode}
+          </p>
+        </div>
+
+        <div className="relative h-44 w-full max-w-sm rounded-lg bg-gradient-to-r from-slate-50 to-slate-200 p-4 transition-all hover:scale-105">
+          <h2 className="text-lg font-semibold">Bank Information</h2>
+          <p className="absolute bottom-10 text-purple-400">
+            {user.selectedUser?.bank.cardNumber}
+          </p>
+          <p className="absolute bottom-3 text-sm text-purple-400">
+            <span className="text-xs text-slate-400">exp </span>
+            {user.selectedUser?.bank.cardExpire}
+          </p>
+          <p className="absolute right-2 top-4 rounded border border-purple-500 p-2 text-sm text-slate-950 ">
+            {user.selectedUser?.bank.cardType}
+          </p>
+          <p className="text-slate-400">
+            Currency: {user.selectedUser?.bank.currency}
+          </p>
+
+          <div className="absolute bottom-2 right-2 flex flex-col items-end gap-2">
+            <p className="text-xs text-slate-600">
+              Crypto Coin: {user.selectedUser?.crypto.coin}
+            </p>
+            <p className="text-xs text-slate-600">
+              Crypto Network: {user.selectedUser?.crypto.network}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex h-44 w-full max-w-sm flex-col justify-between rounded-lg p-4 transition-all hover:scale-105 hover:bg-slate-100">
+          <h2 className="text-lg font-semibold">Company Information</h2>
+          <p className="text-slate-400">
+            <span className="text-slate-950">Company Name: </span>
+            {user.selectedUser?.company.name}
+          </p>
+          <p className="text-slate-400">
+            <span className="text-slate-950">Company Title: </span>
+            {user.selectedUser?.company.title}
+          </p>
+          <p className="text-slate-400">
+            <span className="text-slate-950">Company department: </span>
+            {user.selectedUser?.company.department}
           </p>
         </div>
       </div>

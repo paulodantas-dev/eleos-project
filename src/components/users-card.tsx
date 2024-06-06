@@ -43,26 +43,6 @@ export function UsersCard({ user }: UserCardProps) {
               <p className="text-gray-600">{user.phone}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-lg font-semibold">Personal Information</h2>
-            <ul className="list-inside list-disc text-gray-700">
-              <li>Age: {user.age}</li>
-              <li>Gender: {user.gender}</li>
-              <li>Height: {user.height} cm</li>
-              <li>Weight: {user.weight} kg</li>
-              <li>Eye Color: {user.eyeColor}</li>
-              <li>
-                Hair: {user.hair.color} ({user.hair.type})
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-lg font-semibold">Address</h2>
-            <p className="text-gray-700">
-              {user.address.address}, {user.address.city}, {user.address.state},
-              {user.address.country}
-            </p>
-          </div>
         </CardContent>
       </Card>
     </Link>
