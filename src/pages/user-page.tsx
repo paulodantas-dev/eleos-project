@@ -15,13 +15,13 @@ export function UserPage() {
 
   const user = useAppSelector(selectUsers);
 
+  console.log(id);
+
   useEffect(() => {
     if (id) {
       dispatch(fetchUserById({ id }));
     }
   }, [dispatch, id]);
-
-  console.log(user.selectedUser);
 
   if (user.loading)
     return (
