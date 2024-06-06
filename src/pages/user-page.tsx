@@ -15,8 +15,6 @@ export function UserPage() {
 
   const user = useAppSelector(selectUsers);
 
-  console.log(id);
-
   useEffect(() => {
     if (id) {
       dispatch(fetchUserById({ id }));
@@ -44,12 +42,29 @@ export function UserPage() {
     );
 
   return (
-    <div className="flex w-full flex-col gap-8 p-12">
-      <div>
-        <IconButton color="primary" onClick={() => navigate(-1)}>
+    <div className="flex w-full flex-col gap-8 ">
+      <div className="relative h-44 bg-slate-300">
+        <IconButton
+          color="primary"
+          onClick={() => navigate(-1)}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "0.5rem",
+            transform: "translateY(-50%)",
+          }}
+        >
           <ArrowBackIcon />
           <span className="text-sm text-purple-500">Back</span>
         </IconButton>
+
+        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 rounded-full border border-slate-950 bg-slate-800/80">
+          <img
+            className="size-32 rounded-full"
+            src={user.selectedUser?.image}
+            alt="User"
+          />
+        </div>
       </div>
 
       <UserDetails user={user} />
